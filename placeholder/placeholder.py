@@ -34,12 +34,12 @@ class ImageForm(forms.Form):
         if content is None:
             image = Image.new('RGB', (width, height))
             draw = ImageDraw.Draw(image)
-            text = '{} X {}'.format(width, height)
+            text = 'chinese'
             textwidth, textheight = draw.textsize(text)
             if textwidth < width and textheight < height:
                 texttop = (height - textheight) // 2
                 textleft = (width - textwidth) // 2
-                draw.text((textleft, texttop), text, fill=(255, 255, 255))
+                draw.text((textleft, texttop), text, fill=(255, 255, 255),)
             content = BytesIO()
             image.save(content, image_format)
             content.seek(0)

@@ -1,4 +1,7 @@
 .idea
+
 sitebuilder/__pycache__
 sitebuilder/management/__pycache__
 sitebuilder/management/commands/__pycache__
+
+scrum/board/__pycache__

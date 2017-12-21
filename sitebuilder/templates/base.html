@@ -5,6 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="discription" content="{{ description|default:'Default prototype description' }}">
+    <meta name="keywords" content="{{ keywords|default:'prototype' }}">
     <title>{% block title %}Rapid prototypes{% endblock %}</title>
 
     {% compress css %}
@@ -32,6 +34,9 @@
             <ul class="nav navbar-nav">
                 <li {% if slug == 'index' %}class="active"{% endif %}>
                     <a href="/">Home</a>
+                </li>
+                <li {% if slug == 'pricing' %}class="active"{% endif %}>
+                    <a href="{% url 'page' 'pricing' %}">Pricing</a>
                 </li>
                 <li {% if slug == 'contact' %}class="active"{% endif %}>
                     <a href="{% url 'page' 'contact' %}">Contact</a>

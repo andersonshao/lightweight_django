@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scrum Board</title>
+</head>
+<body>
+<script src="{% static 'board/vendor/jquery.js' %}"></script>
+<script src="{% static 'board/vendor/underscore.js' %}"></script>
+<script src="{% static 'board/vendor/backbone.js' %}"></script>
+<script id="config" type="text/json">
+    {
+        "models": {},
+        "views": {},
+        "collections": {},
+        "router": null
+    }
+</script>
+
+<script src="{% static 'board/js/app.js' %}"></script>
+<script src="{% static 'board/js/models.js' %}"></script>
+<script src="{% static 'board/js/views.js' %}"></script>
+<script src="{% static 'board/js/router.js' %}"></script>
+</body>
+</html>

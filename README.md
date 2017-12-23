@@ -27,3 +27,6 @@ Lightweight Django study notes
 ### **第五章 使用Backbone.js的客户端Django**
 > 这一章多涉及到前端js，稍稍回顾下廖雪峰的js教程。先硬着头皮看吧。程序员越来越全栈化，要学的东西还很多。
 
+## 2017-12-23
+> 项目在PyCharm中runserver成功，但在chrome中却没有呈现理想的效果。了解了在chrome中调试js的技巧。
+

@@ -30,3 +30,6 @@ Lightweight Django study notes
 ## 2017-12-23
 > 项目在PyCharm中runserver成功，但在chrome中却没有呈现理想的效果。了解了在chrome中调试js的技巧。
 
+## 2017-12-24
+> 两天一直在解决一个问题：Cannot read property 'replace' of undefined. Google了好多方案都没头绪。最后参考 https://github.com/lightweightdjango/examples，发现出错的地方很搞笑，views.js 里面有个 templateName写错了，应该是'header-template'却误写成'head-template'。 chrome把错误定位到backbone.js 和 TemplateView 里，而 'header-template' 来自 继承 TemplateView的 HeaderView ...仔细想想这样的错误提示也没错，只不过有点哭笑不得。
+

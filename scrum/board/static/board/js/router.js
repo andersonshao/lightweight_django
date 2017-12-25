@@ -3,7 +3,7 @@
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'home',
-            'sprint:/id': 'sprint'
+            'sprint/:id': 'sprint' 
         },
         initialize: function (options) {
             this.contentElement = '#content';
@@ -17,7 +17,6 @@
             var view = new app.views.HomepageView({el: this.contentElement});
             this.render(view);
         },
-
         sprint: function (id) {
             var view = new app.views.SprintView({
                 el: this.contentElement,
@@ -25,7 +24,6 @@
             });
             this.render(view);
         },
-
         route: function (route, name, callback) {
             // Override default route to enforce login on every page
             var login;
@@ -61,7 +59,7 @@
             this.current.render();
         }
     });
-
+    
     app.router = AppRouter;
 
 })(jQuery, Backbone, _, app);

@@ -1,11 +1,11 @@
 (function ($, Backbone, _, app) {
-	
+
     // CSRF helper functions taken directly from Django docs
     function csrfSafeMethod(method) {
         // these HTTP methods do not require CSRF protection
         return (/^(GET|HEAD|OPTIONS|TRACE)$/i.test(method));
     }
-    
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie != '') {
@@ -15,14 +15,14 @@
                 // Does this cookie string begin with the name we want?
                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
                     cookieValue = decodeURIComponent(
-                    cookie.substring(name.length + 1));
+                        cookie.substring(name.length + 1));
                     break;
                 }
             }
         }
         return cookieValue;
     }
-    
+
     // Setup jQuery ajax calls to handle CSRF
     $.ajaxPrefilter(function (settings, originalOptions, xhr) {
         var csrftoken;
@@ -36,7 +36,7 @@
     });
 
     var Session = Backbone.Model.extend({
-            defaults: {
+        defaults: {
             token: null
         },
         initialize: function (options) {
@@ -73,7 +73,7 @@
             }
         }
     });
-    
+
     app.session = new Session();
 
     var BaseModel = Backbone.Model.extend({
@@ -127,7 +127,7 @@
         getOrFetch: function (id) {
             var result = new $.Deferred(),
                 model = this.get(id);
-            if (!model) {
+            if (model !== null) {
                 model = this.push({id: id});
                 model.fetch({
                     success: function (model, response, options) {
@@ -151,6 +151,7 @@
             url: data.sprints
         });
         app.sprints = new app.collections.Sprints();
+
         app.collections.Tasks = BaseCollection.extend({
             model: app.models.Task,
             url: data.tasks,
@@ -159,11 +160,12 @@
             }
         });
         app.tasks = new app.collections.Tasks();
+
         app.collections.Users = BaseCollection.extend({
             model: app.models.User,
             url: data.users
         });
         app.users = new app.collections.Users();
     });
-    
+
 })(jQuery, Backbone, _, app);

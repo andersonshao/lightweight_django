@@ -7,7 +7,7 @@
         },
         render: function () {
             var context = this.getContext(),
-            html = this.template(context);
+                html = this.template(context);
             this.$el.html(html);
         },
         getContext: function () {
@@ -106,7 +106,7 @@
             });
         },
         getContext: function () {
-            return {sprints: app.sprints || null};
+            return {sprints: app.sprints || null };
         },
         renderAddForm: function (event) {
             var view = new NewSprintView(),

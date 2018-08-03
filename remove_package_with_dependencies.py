@@ -22,7 +22,6 @@ def remove_package(package_name):
     os.system('pip uninstall -y %s' % package_name)
 
 
-
 if __name__ == '__main__':
     package_name = input('请输入需要删除的包：')
     remove_package(package_name)

@@ -72,7 +72,7 @@ class ImageForm(forms.Form):
         if content is None:
             image = Image.new('RGB', (width, height))
             draw = ImageDraw.Draw(image)
-            text = 'chinese'
+            text = '{} x {}'.format(width, height)
             textwidth, textheight = draw.textsize(text)
             if textwidth < width and textheight < height:
                 texttop = (height - textheight) // 2

@@ -1,10 +1,11 @@
 import os
 import shutil
+
 from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 from django.test.client import Client
-from django.shortcuts import reverse
+from django.core.urlresolvers import reverse
 
 
 def get_pages():
@@ -20,10 +21,9 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('args', nargs='*')
 
-
     def handle(self, *args, **options):
-        settings.DEBUG=False
-        settings.COMPRESS_ENABLED=True
+        settings.DEBUG = False
+        settings.COMPRESS_ENABLED = True
         if args:
             pages = args
             available = list(get_pages())
@@ -33,6 +33,7 @@ class Command(BaseCommand):
                     invalid.append(page)
             if invalid:
                 msg = 'Invalid pages: {}'.format(', '.join(invalid))
+                raise CommandError(msg)
         else:
             pages = get_pages()
             if os.path.exists(settings.SITE_OUTPUT_DIRECTORY):
@@ -42,7 +43,7 @@ class Command(BaseCommand):
         call_command('collectstatic', interactive=False, clear=True, verbosity=0)
         call_command('compress', interactive=False, force=True)
         client = Client()
-        for page in get_pages():
+        for page in pages:
             url = reverse('page', kwargs={'slug': page})
             response = client.get(url)
             if page == 'index':
@@ -53,5 +54,3 @@ class Command(BaseCommand):
                     os.makedirs(output_dir)
             with open(os.path.join(output_dir, 'index.html'), 'wb') as f:
                 f.write(response.content)
-
-

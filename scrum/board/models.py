@@ -2,9 +2,9 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
+
 # Create your models here.
 class Sprint(models.Model):
-
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.TextField(blank=True, default='')
     end = models.DateField(unique=True)
@@ -14,13 +14,12 @@ class Sprint(models.Model):
 
 
 class Task(models.Model):
+    STATUS_TODO = 1
+    STATUS_IN_PROGRESS = 2
+    STATUS_TESTING = 3
+    STATUS_DONE = 4
 
-    STATUS_TODO=1
-    STATUS_IN_PROGRESS=2
-    STATUS_TESTING=3
-    STATUS_DONE=4
-
-    STATUS_CHOICE=(
+    STATUS_CHOICE = (
         (STATUS_TODO, _('Not Started')),
         (STATUS_IN_PROGRESS, _('In Progress')),
         (STATUS_TESTING, _('Testing')),
@@ -40,11 +39,10 @@ class Task(models.Model):
     assigned = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
 
     started = models.DateField(blank=True, null=True)
-    
+
     due = models.DateField(blank=True, null=True)
 
     completed = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.name
-

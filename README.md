@@ -1,14 +1,6 @@
 # Lightweight-Django
 Lightweight Django study notes
 
-### **第四章 构建REST API**
-
-> djangorestframework 从3.6起移除了 DjangoFilterBackend
-
-因此使用3.5版本
-	
-    pip install djangorestframework==3.5.0
-
 ### **第五章 使用Backbone.js的客户端Django**
 > 这一章多涉及到前端js，稍稍回顾下廖雪峰的js教程。先硬着头皮看吧。程序员越来越全栈化，要学的东西还很多。
 

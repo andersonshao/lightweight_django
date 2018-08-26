@@ -7,7 +7,6 @@ from .forms import TaskFilter, SprintFilter
 User = get_user_model()
 
 
-
 class DefaultsMixin(object):
     """
     Default settings for view authentications, permissions, filtering and pagination.
@@ -24,24 +23,19 @@ class DefaultsMixin(object):
     paginated_by_param = 'page_size',
     max_paginate_by = 100
 
-    filter_backends=(
+    filter_backends = (
         filters.DjangoFilterBackend,
         filters.SearchFilter,
         filters.OrderingFilter,
     )
 
 
-
 class SprintViewSet(DefaultsMixin, viewsets.ModelViewSet):
-
     queryset = Sprint.objects.order_by('end')
     serializer_class = SprintSerializer
     search_fields = ('name',)
     ordering_fields = ('end', 'name',)
     filter_class = SprintFilter
-
-
-
 
 
 class TaskViewSet(DefaultsMixin, viewsets.ModelViewSet):
@@ -54,8 +48,7 @@ class TaskViewSet(DefaultsMixin, viewsets.ModelViewSet):
     filter_class = TaskFilter
 
 
-
-class UserViewSet(DefaultsMixin, viewsets.ModelViewSet):
+class UserViewSet(DefaultsMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoint for listening users."""
 
     lookup_field = User.USERNAME_FIELD
@@ -63,4 +56,3 @@ class UserViewSet(DefaultsMixin, viewsets.ModelViewSet):
     queryset = User.objects.order_by(User.USERNAME_FIELD)
     serializer_class = UserSerializer
     search_fields = (User.USERNAME_FIELD,)
-

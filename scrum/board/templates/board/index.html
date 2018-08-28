@@ -30,9 +30,9 @@
     <script type="text/html" id="login-template">
         <form action="" method="post">
             <label for="id_username">Username</label>
-            <input id="id_username" type="text" name="username" maxlength="30" required />
+            <input id="id_username" type="text" name="username" maxlength="30" required/>
             <label for="id_password">Password</label>
-            <input id="id_password" type="password" name="password" required />
+            <input id="id_password" type="password" name="password" required/>
             <button type="submit">Login</button>
         </form>
     </script>
@@ -50,9 +50,9 @@
     <script type="text/html" id="new-sprint-template">
         <form action="" method="post">
             <label for="id_name">Sprint Name</label>
-            <input id="id_name" type="text" name="name" maxlength="100" required />
+            <input id="id_name" type="text" name="name" maxlength="100" required/>
             <label for="id_end">End Date</label>
-            <input id="id_end" type="date" name="end" />
+            <input id="id_end" type="date" name="end"/>
             <label for="id_description">Description</label>
             <textarea id="id_description" name="description" cols="50"></textarea>
             <button class="cancel">Cancel</button>
@@ -86,7 +86,7 @@
     <script type="text/html" id="new-task-template">
         <form class="add-task" action="" method="post">
             <label for="id_name">Task Name</label>
-            <input id="id_name" type="text" name="name" maxlength="100" required />
+            <input id="id_name" type="text" name="name" maxlength="100" required/>
             <label for="id_description">Description</label>
             <textarea id="id_description" name="description"></textarea>
             <button class="create" type="submit">Create</button>
@@ -140,7 +140,8 @@
                 "apiRoot": "{% url 'api-root' %}",
                 "apiLogin": "{% url 'api-token' %}"
             }
-        </script>
+
+</script>
 <script src="{% static 'board/js/app.js' %}"></script>
 <script src="{% static 'board/js/models.js' %}"></script>
 <script src="{% static 'board/js/views.js' %}"></script>

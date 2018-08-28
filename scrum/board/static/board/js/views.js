@@ -31,9 +31,11 @@
                 if (label.length === 0) {
                     label = $('label', this.form).first();
                 }
+
                 function appendError(msg) {
                     label.before(this.errorTemplate({msg: msg}));
                 }
+
                 _.map(fieldErrors, appendError, this);
             }, this);
         },
@@ -106,7 +108,7 @@
             });
         },
         getContext: function () {
-            return {sprints: app.sprints || null };
+            return {sprints: app.sprints || null};
         },
         renderAddForm: function (event) {
             var view = new NewSprintView(),
@@ -238,7 +240,7 @@
         },
         editField: function (event) {
             var $this = $(event.currentTarget),
-                value = $this.text().replace(/^\s+|\s+$/g,''),
+                value = $this.text().replace(/^\s+|\s+$/g, ''),
                 field = $this.data('field');
             this.changes[field] = value;
             $('button.save', this.$el).show();
@@ -249,15 +251,17 @@
                 if (field.length === 0) {
                     field = $('[data-field]', this.$el).first();
                 }
+
                 function appendError(msg) {
                     var parent = field.parent('.with-label'),
                         error = this.errorTemplate({msg: msg});
-                    if (parent.length  === 0) {
+                    if (parent.length === 0) {
                         field.before(error);
                     } else {
                         parent.before(error);
                     }
                 }
+
                 _.map(fieldErrors, appendError, this);
             }, this);
         }
@@ -304,15 +308,20 @@
             this.tasks = {};
             this.statuses = {
                 unassigned: new StatusView({
-                    sprint: null, status: 1, title: 'Backlog'}),
+                    sprint: null, status: 1, title: 'Backlog'
+                }),
                 todo: new StatusView({
-                    sprint: this.sprintId, status: 1, title: 'Not Started'}),
+                    sprint: this.sprintId, status: 1, title: 'Not Started'
+                }),
                 active: new StatusView({
-                    sprint: this.sprintId, status: 2, title: 'In Development'}),
+                    sprint: this.sprintId, status: 2, title: 'In Development'
+                }),
                 testing: new StatusView({
-                    sprint: this.sprintId, status: 3, title: 'In Testing'}),
+                    sprint: this.sprintId, status: 3, title: 'In Testing'
+                }),
                 done: new StatusView({
-                    sprint: this.sprintId, status: 4, title: 'Completed'})
+                    sprint: this.sprintId, status: 4, title: 'Completed'
+                })
             };
             app.collections.ready.done(function () {
                 app.tasks.on('add', self.addTask, self);

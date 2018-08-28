@@ -3,7 +3,7 @@
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'home',
-            'sprint/:id': 'sprint' 
+            'sprint/:id': 'sprint'
         },
         initialize: function (options) {
             this.contentElement = '#content';
@@ -59,7 +59,7 @@
             this.current.render();
         }
     });
-    
+
     app.router = AppRouter;
 
 })(jQuery, Backbone, _, app);

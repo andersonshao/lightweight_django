@@ -100,7 +100,7 @@
             var sprint = this.get('sprint'),
                 status;
             if (!sprint) {
-                status =  'unassigned';
+                status = 'unassigned';
             } else {
                 status = ['todo', 'active', 'testing', 'done'][this.get('status') - 1];
             }

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bfa1578e6af9add9d0220b48c08c34555e2bd845b8be4b2e23ce7a66c39529a6"
+            "sha256": "93cc176d0711ebf8c0697b204578ee01c930a5f5450d880f77a71e4bb8f812d7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -289,6 +289,13 @@
             ],
             "version": "==2.2.0"
         },
+        "redis": {
+            "hashes": [
+                "sha256:a4fb37b02860f6b1617f6469487471fd086dd2d38bbce640c2055862b9c4019c"
+            ],
+            "index": "pypi",
+            "version": "==2.10.3"
+        },
         "requests": {
             "hashes": [
                 "sha256:63b52e3c866428a224f97cab011de738c36aec0185aa91cfacd418b5d58911d1",
@@ -316,6 +323,13 @@
             ],
             "index": "pypi",
             "version": "==4.2"
+        },
+        "tornado-redis": {
+            "hashes": [
+                "sha256:8fd3b324158291ad5fb7f5f8dc2e8763b2895556bd2a44f2dd721b703c669046"
+            ],
+            "index": "pypi",
+            "version": "==2.4.18"
         },
         "traitlets": {
             "hashes": [

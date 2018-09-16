@@ -16,6 +16,8 @@ markdown = "==2.6.2"
 "psycopg2-binary" = "*"
 requests = "*"
 tornado = "==4.2"
+tornado-redis = "==2.4.18"
+redis = "==2.10.3"
 
 [dev-packages]
 

@@ -15,6 +15,7 @@ markdown = "==2.6.2"
 "psycopg2" = "*"
 "psycopg2-binary" = "*"
 requests = "*"
+tornado = "==4.2"
 
 [dev-packages]
 

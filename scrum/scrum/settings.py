@@ -119,3 +119,7 @@ STATIC_URL = '/static/'
 #     "django.contrib.staticfiles.finders.FileSystemFinder",
 #     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 # )
+
+WATERCOOLER_SERVER = os.environ.get('WATERCOOLER_SERVER', 'localhost:8080')
+
+WATERCOOLER_SECURE = bool(os.environ.get('WATERCOOLER_SECURE', ''))

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1620d1414e273c8af58126eeb2a2edc6c7396b83a768d2c7d211c736f40486e6"
+            "sha256": "bfa1578e6af9add9d0220b48c08c34555e2bd845b8be4b2e23ce7a66c39529a6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -310,6 +310,13 @@
             ],
             "version": "==1.11.0"
         },
+        "tornado": {
+            "hashes": [
+                "sha256:e8b1207da67dbdceebfb291292b4ef1b547d6171525bec1b366853f923456a5f"
+            ],
+            "index": "pypi",
+            "version": "==4.2"
+        },
         "traitlets": {
             "hashes": [
                 "sha256:9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835",
@@ -322,7 +329,7 @@
                 "sha256:a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf",
                 "sha256:b5725a0bd4ba422ab0e66e89e030c806576753ea3ee08554382c14e685d117b5"
             ],
-            "markers": "python_version != '3.1.*' and python_version != '3.3.*' and python_version < '4' and python_version != '3.2.*' and python_version != '3.0.*' and python_version >= '2.6'",
+            "markers": "python_version != '3.3.*' and python_version != '3.0.*' and python_version >= '2.6' and python_version != '3.1.*' and python_version != '3.2.*' and python_version < '4'",
             "version": "==1.23"
         },
         "wcwidth": {

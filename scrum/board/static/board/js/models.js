@@ -127,7 +127,7 @@
         getOrFetch: function (id) {
             var result = new $.Deferred(),
                 model = this.get(id);
-            if (model !== null) {
+            if (!model) {
                 model = this.push({id: id});
                 model.fetch({
                     success: function (model, response, options) {

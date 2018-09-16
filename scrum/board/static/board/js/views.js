@@ -70,6 +70,9 @@
     var NewSprintView = FormView.extend({
         templateName: '#new-sprint-template',
         className: 'new-sprint',
+        events: _.extend({
+            'click button.cancle': 'done',
+        }, FormView.prototype.events),
         submit: function (event) {
             var self = this,
                 attributes = {};
@@ -103,7 +106,11 @@
                 end = end.toISOString().replace(/T.*/g, '');
                 app.sprints.fetch({
                     data: {end_min: end},
-                    success: $.proxy(self.render, self)
+                    // success: $.proxy(self.render, self)
+                    success: function(collection, response, options){
+                        collection.add(response);
+                        self.render();
+                    }
                 });
             });
         },
@@ -328,9 +335,7 @@
                 app.sprints.getOrFetch(self.sprintId).done(function (sprint) {
                     self.sprint = sprint;
                     self.render();
-                    // Add any current tasks
                     app.tasks.each(self.addTask, self);
-                    // Fetch tasks for the current sprint
                     sprint.fetchTasks();
                 }).fail(function (sprint) {
                     self.sprint = sprint;
